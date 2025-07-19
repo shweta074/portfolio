@@ -1,9 +1,20 @@
 from django.shortcuts import render,  HttpResponse
-
+from django.views import generic
+from blog.models import Post
+# import requests
 
 def index(request):
-    # return HttpResponse("Hello, world. You're at the polls index.")
-     return render(
-         request=request,
-         template_name='website/index.html'
-     )
+    blog = Post.objects.all()
+    return render(request,template_name='website/index.html', context={"blogs": blog})
+
+def assests(request):
+    return render(request,template_name='website/assests')
+
+
+
+
+    
+
+  
+     
+     
